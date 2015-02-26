@@ -64,6 +64,8 @@ struct sockaddr_t {
   uint16_t        s_spares[6];  /**<  Unused in TCP realm */
 } ;
 
+typedef void * ssl_t;
+
 /**
   * @brief  Time interval define used in @ref select
   */
@@ -84,6 +86,7 @@ typedef enum {
   IP_DROP_MEMBERSHIP      = 0x0004,     /**< Leave Multicast group. */
   TCP_CONN_NUM            = 0x0006,     /**< Read the current connected TCP client number. */
   TCP_MAX_CONN_NUM        = 0x0007,     /**< Set the max number of TCP client that server can support. */
+  SO_KEEPALIVE            = 0x0008,     /** < Set TCP Keepalive interval and duration*/
   SO_BLOCKMODE            = 0x1000,     /**< set socket as block(optval=0)/non-block(optval=1) mode. 
                                              Default is block mode. */
   SO_SNDTIMEO             = 0x1005,     /**< Send timeout in block mode. block for ever in dafault mode. */
@@ -454,6 +457,12 @@ void get_tcp_keepalive(int *outMaxErrNum, int *outSeconds);
 /**
   * @}
   */
+
+ssl_t ssl_connect(int fd,int a, char* b, int* err);
+ssl_t ssl_accept(int fd);
+int ssl_send(ssl_t ssl, char *data, int len);
+int ssl_recv(ssl_t ssl, char *data, int len);
+int ssl_close(ssl_t ssl);
 
 /**
   * @}

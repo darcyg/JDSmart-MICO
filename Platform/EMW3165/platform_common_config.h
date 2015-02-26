@@ -112,7 +112,7 @@ typedef enum
   MICO_RF_LED,
   BOOT_SEL,
   MFG_SEL,
-  Standby_SEL,
+//  Standby_SEL,
   EasyLink_BUTTON,
   STDIO_UART_RX,  
   STDIO_UART_TX,  
@@ -121,6 +121,8 @@ typedef enum
 
 #define MICO_GPIO_WLAN_POWERSAVE_CLOCK MICO_GPIO_UNUSED
 #define WL_REG MICO_GPIO_UNUSED
+#define Standby_SEL MICO_GPIO_UNUSED
+
 
 /* How the wlan's powersave clock is connected */
 typedef enum
