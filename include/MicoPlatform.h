@@ -1,18 +1,18 @@
 /**
 ******************************************************************************
-* @file    MicoDefault.h 
+* @file    MicoDefault.h
 * @author  William Xu
 * @version V1.0.0
 * @date    16-Sep-2014
-* @brief   This file provides all the headers of MICO peripheral operations. 
+* @brief   This file provides all the headers of MICO peripheral operations.
 ******************************************************************************
 *
 *  The MIT License
 *  Copyright (c) 2014 MXCHIP Inc.
 *
-*  Permission is hereby granted, free of charge, to any person obtaining a copy 
+*  Permission is hereby granted, free of charge, to any person obtaining a copy
 *  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights 
+*  in the Software without restriction, including without limitation the rights
 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 *  copies of the Software, and to permit persons to whom the Software is furnished
 *  to do so, subject to the following conditions:
@@ -20,14 +20,14 @@
 *  The above copyright notice and this permission notice shall be included in
 *  all copies or substantial portions of the Software.
 *
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-*  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+*  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 *  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ******************************************************************************
-*/ 
+*/
 
 #ifndef __MICOPLATFORM_H__
 #define __MICOPLATFORM_H__
@@ -36,7 +36,6 @@
 
 #include "common.h"
 
-#include "MicoDefaults.h"
 #include "platform.h" /* This file is unique for each platform */
 
 #include "MicoDrivers/MICODriverUART.h"
@@ -59,7 +58,7 @@ extern "C" {
 
 /** @defgroup MICO_PLATFORM  MICO Hardware Abstract Layer APIs
 * @brief Control hardware peripherals on different platfroms using standard HAL API functions
-* 
+*
 */
 
 /** @addtogroup MICO_PLATFORM
@@ -90,12 +89,12 @@ void MicoSystemStandBy(uint32_t secondsToWakeup);
 
 /** @brief    Enables the MCU to enter deep sleep mode when all threads are suspended.
   *
-  * @note:    When all threads are suspended, mcu can shut down some peripherals to 
-  *           save power. For example, STM32 enters STOP mode in this condition, 
+  * @note:    When all threads are suspended, mcu can shut down some peripherals to
+  *           save power. For example, STM32 enters STOP mode in this condition,
   *           its peripherals are not working and needs to be wake up by an external
-  *           interrupt or MICO core's internal timer. So if you are using a peripherals,  
+  *           interrupt or MICO core's internal timer. So if you are using a peripherals,
   *           you should disable this function temporarily.
-  *           To make this function works, you should not disable the macro in MicoDefault.h: 
+  *           To make this function works, you should not disable the macro in MicoDefault.h:
   *           MICO_DISABLE_MCU_POWERSAVE
   *
   * @param    enable : 1 = enable MCU powersave, 0 = disable MCU powersave

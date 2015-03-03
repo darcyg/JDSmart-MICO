@@ -1,6 +1,6 @@
 /**
 ******************************************************************************
-* @file    MICODefine.h 
+* @file    MICODefine.h
 * @author  William Xu
 * @version V1.0.0
 * @date    05-May-2014
@@ -11,9 +11,9 @@
 *  The MIT License
 *  Copyright (c) 2014 MXCHIP Inc.
 *
-*  Permission is hereby granted, free of charge, to any person obtaining a copy 
+*  Permission is hereby granted, free of charge, to any person obtaining a copy
 *  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights 
+*  in the Software without restriction, including without limitation the rights
 *  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
 *  copies of the Software, and to permit persons to whom the Software is furnished
 *  to do so, subject to the following conditions:
@@ -21,11 +21,11 @@
 *  The above copyright notice and this permission notice shall be included in
 *  all copies or substantial portions of the Software.
 *
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
+*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-*  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR 
+*  WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR
 *  IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 ******************************************************************************
 */
@@ -37,7 +37,6 @@
 #include "Debug.h"
 #include "MICO.h"
 #include "JSON-C/json.h"
-#include "MICOAppDefine.h"
 
 #define CONFIG_MODE_EASYLINK                    2
 #define CONFIG_MODE_SOFT_AP                     3
@@ -79,18 +78,18 @@
 
 
 typedef enum  {
-  /*All settings are in default state, module will enter easylink mode when powered on. 
+  /*All settings are in default state, module will enter easylink mode when powered on.
   Press down Easyink button for 3 seconds (defined by RestoreDefault_TimeOut) to enter this mode */
   unConfigured,
   /*Module will enter easylink mode temperaly when powered on, and go back to allConfigured
     mode after time out (Defined by EasyLink_TimeOut), This mode is used for changing wlan
     settings if module is moved to a new wlan enviroment. Press down Easyink button to
-    enter this mode */                
+    enter this mode */
   wLanUnConfigured,
-  /*Normal working mode, module use the configured settings to connecte to wlan, and run 
+  /*Normal working mode, module use the configured settings to connecte to wlan, and run
     user's threads*/
   allConfigured,
-  /*If MFG_MODE_AUTO is enabled and MICO settings are erased (maybe a fresh device just has 
+  /*If MFG_MODE_AUTO is enabled and MICO settings are erased (maybe a fresh device just has
     been programed or MICO settings is damaged), module will enter MFG mode when powered on. */
   mfgConfigured
 }Config_State_t;
@@ -111,7 +110,7 @@ typedef struct  _boot_table_t {
   uint32_t length; // file real length
   uint8_t version[8];
   uint8_t type; // B:bootloader, P:boot_table, A:application, D: 8782 driver
-  uint8_t upgrade_type; //u:upgrade, 
+  uint8_t upgrade_type; //u:upgrade,
   uint8_t reserved[6];
 }boot_table_t;
 
@@ -122,9 +121,9 @@ typedef struct _mico_sys_config_t
 
   /*Wi-Fi configuration*/
   char            ssid[maxSsidLen];
-  char            user_key[maxKeyLen]; 
+  char            user_key[maxKeyLen];
   int             user_keyLength;
-  char            key[maxKeyLen]; 
+  char            key[maxKeyLen];
   int             keyLength;
   char            bssid[6];
   int             channel;
@@ -161,10 +160,10 @@ typedef struct _flash_configuration_t {
   /*MICO system core configuration*/
   mico_sys_config_t        micoSystemConfig;
   /*Application configuration*/
-  application_config_t     appConfig; 
+  application_config_t     appConfig;
 } flash_content_t;
 
-typedef struct _current_mico_status_t 
+typedef struct _current_mico_status_t
 {
   /*MICO system Running status*/
   SYS_State_t           sys_state;

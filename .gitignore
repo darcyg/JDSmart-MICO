@@ -13,3 +13,4 @@ Build/*
 si/*
 *.wspos
 *.William
+/Projects/EMW3165_stm32f4xx
